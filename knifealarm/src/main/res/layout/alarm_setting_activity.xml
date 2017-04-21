@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:id="@+id/rl_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/colorWhite"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:elevation="3dp">
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_small"
+            android:text="@string/cancel"
+            android:textColor="@color/colorAccent"
+            android:layout_centerVertical="true"
+            android:background="?android:selectableItemBackgroundBorderless"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_normal"
+            android:text="@string/create_alarm"
+            android:textColor="@color/colorSecondaryText"
+            android:layout_centerInParent="true" />
+
+        <TextView
+            android:id="@+id/tv_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_small"
+            android:text="@string/save"
+            android:textColor="@color/colorAccent"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:background="?android:selectableItemBackgroundBorderless" />
+
+    </RelativeLayout>
+
+    <include layout="@layout/alarm_time_select_layout"/>
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+            <include layout="@layout/alarm_setting_layout"/>
+
+    </ScrollView>
+
+</LinearLayout>

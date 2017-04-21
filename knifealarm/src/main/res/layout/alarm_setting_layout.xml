@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_horizontal_margin">
+
+    <include layout="@layout/divider_layout"/>
+
+    <com.leo.knifealarm.view.AlarmSettingIndicator
+        android:id="@+id/indicator_repeat"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:background="?android:selectableItemBackground"
+        app:feildText="重复"
+        app:indicatorIcon="@drawable/ic_indicator_down"
+        app:valueText="仅一次"/>
+
+    <include layout="@layout/divider_layout"/>
+
+    <com.leo.knifealarm.view.AlarmSettingIndicator
+        android:id="@+id/indicator_ring"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:background="?android:selectableItemBackground"
+        app:feildText="铃声"
+        app:indicatorIcon="@drawable/ic_indicator_left"
+        app:valueText="xxx.mp3"/>
+
+    <include layout="@layout/divider_layout"/>
+
+    <com.leo.knifealarm.view.AlarmSettingSeek
+        android:id="@+id/seek_voice"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:background="?android:selectableItemBackground"
+        app:seekFeildText="音量" />
+
+    <include layout="@layout/divider_layout"/>
+
+    <com.leo.knifealarm.view.AlarmSettingSwitch
+        android:id="@+id/switch_ring"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:background="?android:selectableItemBackground"
+        app:switchFeildText="开启铃声"/>
+
+    <include layout="@layout/divider_layout"/>
+
+    <com.leo.knifealarm.view.AlarmSettingSwitch
+        android:id="@+id/switch_vabrate"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:background="?android:selectableItemBackground"
+        app:switchFeildText="开启震动" />
+
+    <include layout="@layout/divider_layout"/>
+
+    <com.leo.knifealarm.view.AlarmSettingIndicator
+        android:id="@+id/indicator_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:background="?android:selectableItemBackground"
+        app:feildText="标签"
+        app:indicatorIcon="@drawable/ic_indicator_down"
+        app:valueText="闹钟"/>
+
+</LinearLayout>

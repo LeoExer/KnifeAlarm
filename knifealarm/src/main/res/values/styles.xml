@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AlarmSettingTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <style name="AlarmDialogTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@drawable/alarm_dialog_bg</item>
+    </style>
+
+    <declare-styleable name="AlarmSettingIndicator">
+        <attr name="feildText" format="string"/>
+        <attr name="feildTextSize" format="dimension"/>
+        <attr name="feildTextColor" format="color"/>
+        <attr name="valueText" format="string"/>
+        <attr name="valueTextSize" format="dimension"/>
+        <attr name="valueTextColor" format="color"/>
+        <attr name="indicatorIcon" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="AlarmSettingSwitch">
+        <attr name="switchFeildText" format="string"/>
+        <attr name="switchFeildTextSize" format="dimension"/>
+        <attr name="switchFeildTextColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="AlarmSettingSeek">
+        <attr name="seekFeildText" format="string"/>
+        <attr name="seekFeildTextSize" format="dimension"/>
+        <attr name="seekFeildTextColor" format="color"/>
+    </declare-styleable>
+
+</resources>
