@@ -10,6 +10,7 @@ import android.util.Log;
 
 import com.leo.knifealarm.data.Alarm;
 import com.leo.knifealarm.data.DataRespository;
+import com.leo.knifealarm.listener.OnAlarmListener;
 import com.leo.knifealarm.listener.OnAudioPlayingListener;
 import com.leo.knifealarm.util.AudioPlayer;
 import com.leo.knifealarm.util.UriValidator;
@@ -18,6 +19,7 @@ import com.leo.knifealarm.util.VibrateUtils;
 import org.litepal.LitePal;
 
 import java.util.Calendar;
+import java.util.List;
 
 /**
  * Created by Leo on 2017/4/17.
@@ -106,21 +108,22 @@ public class KnifeAlarm {
                 int len = days.length;
                 int curDayOfWeek = curCalendar.get(Calendar.DAY_OF_WEEK);
                 for (int i = 0; i < len; i++) {
+                    long newFinalTime = finalTime;
                     int nowDay = days[i];
                     if (nowDay == 1) { // set alarm
                         int dayCount = (i + 1) - curDayOfWeek; // sun = 1; mon = 2 ...
-                        Log.i("TEST", "day count: " + dayCount);
+                        Log.i("TEST", "pos: " + i + ", day count: " + dayCount);
                         if (dayCount < 0) {
-                            finalTime += (dayCount + 7) * MILLIS_OF_DAY;
+                            newFinalTime += (dayCount + 7) * MILLIS_OF_DAY;
                         } else if (dayCount == 0) { // today
                             if (time <= curTime) {
-                                finalTime += MILLIS_OF_WEEK; // delay one week;
+                                newFinalTime += MILLIS_OF_WEEK; // delay one week;
                             }
                         } else {
-                            finalTime += dayCount * MILLIS_OF_DAY;
+                            newFinalTime += dayCount * MILLIS_OF_DAY;
                         }
-                        test(finalTime);
-                        mAlarmManager.setRepeating(AlarmManager.RTC_WAKEUP, finalTime,
+                        test(newFinalTime);
+                        mAlarmManager.setRepeating(AlarmManager.RTC_WAKEUP, newFinalTime,
                                 MILLIS_OF_WEEK, sender);
                     }
                 }
@@ -145,6 +148,10 @@ public class KnifeAlarm {
         mAlarmManager.cancel(pi);
 
         DataRespository.getInstance().delete(alarmId);
+    }
+
+    public List<Alarm> getAllAlarms() {
+        return DataRespository.getInstance().loadAlarms();
     }
 
     public void playAudio(Alarm alarm) {

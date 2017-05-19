@@ -1,4 +1,4 @@
-package com.leo.knifealarm.view;
+package com.leo.knifealarm.ui;
 
 import android.content.Intent;
 import android.media.Ringtone;
@@ -9,7 +9,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -47,7 +46,7 @@ public class AlarmSelectingRingAvtivity extends AppCompatActivity implements Vie
         mPosition = getIntent().getIntExtra("position", -1);
         mSelectedRingtoneUri = RingtoneUtils.getDefaultRingtoneUri(AlarmSelectingRingAvtivity.this,
                 TYPE);
-        mSysRingTitles = RingtoneUtils.getAllRingtoneTitle(this, TYPE);
+        mSysRingTitles = RingtoneUtils.getAllRingtoneTitles(this, TYPE);
         mSysRingTitles.add(0, "跟随系统");
     }
 

@@ -8,7 +8,7 @@
 
     <include layout="@layout/divider_layout"/>
 
-    <com.leo.knifealarm.view.AlarmSettingIndicator
+    <com.leo.knifealarm.ui.AlarmSettingIndicator
         android:id="@+id/indicator_repeat"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
@@ -19,7 +19,7 @@
 
     <include layout="@layout/divider_layout"/>
 
-    <com.leo.knifealarm.view.AlarmSettingIndicator
+    <com.leo.knifealarm.ui.AlarmSettingIndicator
         android:id="@+id/indicator_ring"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
@@ -30,7 +30,7 @@
 
     <include layout="@layout/divider_layout"/>
 
-    <com.leo.knifealarm.view.AlarmSettingSeek
+    <com.leo.knifealarm.ui.AlarmSettingSeek
         android:id="@+id/seek_voice"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
@@ -39,7 +39,7 @@
 
     <include layout="@layout/divider_layout"/>
 
-    <com.leo.knifealarm.view.AlarmSettingSwitch
+    <com.leo.knifealarm.ui.AlarmSettingSwitch
         android:id="@+id/switch_ring"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
@@ -48,7 +48,7 @@
 
     <include layout="@layout/divider_layout"/>
 
-    <com.leo.knifealarm.view.AlarmSettingSwitch
+    <com.leo.knifealarm.ui.AlarmSettingSwitch
         android:id="@+id/switch_vabrate"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
@@ -57,7 +57,7 @@
 
     <include layout="@layout/divider_layout"/>
 
-    <com.leo.knifealarm.view.AlarmSettingIndicator
+    <com.leo.knifealarm.ui.AlarmSettingIndicator
         android:id="@+id/indicator_tag"
         android:layout_width="wrap_content"
         android:layout_height="80dp"

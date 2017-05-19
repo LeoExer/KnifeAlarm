@@ -1,4 +1,4 @@
-package com.leo.knifealarm.view;
+package com.leo.knifealarm.ui;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.TextView;
 
 import com.leo.knifealarm.R;
@@ -29,6 +30,7 @@ public class AlarmSelectingDialog {
     public AlarmSelectingDialog(Context context, List<String> texts, int position) {
         mDialog = new Dialog(context);
         mDialog.setCanceledOnTouchOutside(true);
+        mDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         View view = LayoutInflater.from(context).inflate(R.layout.alarm_select_dialog_layout, null);
         mDialog.setContentView(view);
 
@@ -60,5 +62,10 @@ public class AlarmSelectingDialog {
         if (mDialog != null) {
             mDialog.dismiss();
         }
+    }
+
+    public void release() {
+        dismiss();
+        mDialog = null;
     }
 }

@@ -1,10 +1,12 @@
-package com.leo.knifealarm.view;
+package com.leo.knifealarm.ui;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -145,10 +147,9 @@ public class AlarmSettingActivity extends AppCompatActivity implements View.OnCl
                         .setOnItemSelectListener(new AlarmSelectingAdapter.OnItemSelectListener() {
                             @Override
                             public void onItemSelected(int position, String text) {
-                                // TODO conut select days
-                                log("select repeat: " + text);
+                                updateSelectedDays(text);
                                 mIndiRepeat.setValueText(text);
-                                dialog.dismiss();
+                                dialog.release();
                             }
                         }).show();
             }
@@ -271,14 +272,51 @@ public class AlarmSettingActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void showQuitDialog() {
-
+        new AlertDialog.Builder(this)
+                .setTitle("退出")
+                .setMessage("确定取消编辑闹钟?")
+                .setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                }).setNegativeButton(getString(R.string.cancel), null)
+                .show();
     }
 
     private void updateSelectedDays(String selectedText) {
-        String[] str = getResources().getStringArray(R.array.repeat);
         switch (selectedText) {
-//            case str[0]:
-//                break;
+            case "仅一次":
+                mIsRepeat = false;
+                break;
+
+            case "周一至周五":
+                mIsRepeat = true;
+                mCustomDays = new int[] {0, 1, 1, 1, 1, 1, 0};
+                break;
+
+            case "每天":
+                mIsRepeat = true;
+                mCustomDays = new int[] {1, 1, 1, 1, 1, 1, 1};
+                break;
+
+            case "自定义":
+                new AlarmSelectDaysDialog(this, mCustomDays).setTitle("自定义")
+                        .setOnSelectDaysListener(new AlarmSelectDaysDialog.OnSelectDaysListener() {
+                            @Override
+                            public void onClickOk(int[] days) {
+                                mIsRepeat = true;
+                                mCustomDays = days;
+                            }
+
+                            @Override
+                            public void onClickCancel() {
+                                mIndiRepeat.setValueText("仅一次");
+                                mIsRepeat = false;
+                            }
+                        })
+                        .show();
+                break;
         }
     }
 
@@ -293,7 +331,15 @@ public class AlarmSettingActivity extends AppCompatActivity implements View.OnCl
         log("volume         --> " + mVolume);
         log("is vabrate     --> " + mIsVabrate);
         log("is repeat      --> " + mIsRepeat);
-        log("days           --> " + mCustomDays);
+        log("days           --> " + logDays());
+    }
+
+    private String logDays() {
+        StringBuilder sb = new StringBuilder();
+        for (int day : mCustomDays) {
+            sb.append(day + ", ");
+        }
+        return sb.toString();
     }
 
     private void log(String text) {

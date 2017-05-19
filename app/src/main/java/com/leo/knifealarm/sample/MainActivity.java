@@ -7,9 +7,9 @@ import android.util.Log;
 import android.view.View;
 
 import com.leo.knifealarm.KnifeAlarm;
-import com.leo.knifealarm.OnAlarmListener;
+import com.leo.knifealarm.listener.OnAlarmListener;
 import com.leo.knifealarm.data.Alarm;
-import com.leo.knifealarm.view.AlarmSettingActivity;
+import com.leo.knifealarm.ui.AlarmSettingActivity;
 
 public class MainActivity extends AppCompatActivity {
 

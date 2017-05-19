@@ -129,24 +129,23 @@ public class Alarm extends DataSupport implements Serializable {
                 continue;
             }
 
-            int day = i + 1;
             if (temp.length() > 0) {
-                temp.append(", ").append(day);
+                temp.append(", ").append(i);
             } else {
-                temp.append(day);
+                temp.append(i);
             }
         }
         StringBuilder result = new StringBuilder();
         result.append("-------- alarm start --------")
-            .append("\nhour           --> " + hour)
-            .append("\nminute         --> " + minute)
-            .append("\ntag            --> " + tag)
-            .append("\nis play music  --> " + playAudio)
-            .append("\naudio path     --> " + audioPath)
-            .append("\nvolume         --> " + volume)
-            .append("\nis vabrate     --> " + isVibrate)
-            .append("\nis repeat      --> " + isRepeat)
-            .append("\ndays           --> " + temp.toString())
+            .append("\nhour           --> ").append(hour)
+            .append("\nminute         --> ").append(minute)
+            .append("\ntag            --> ").append(tag)
+            .append("\nis play music  --> ").append(playAudio)
+            .append("\naudio path     --> ").append(audioPath)
+            .append("\nvolume         --> ").append(volume)
+            .append("\nis vabrate     --> ").append(isVibrate)
+            .append("\nis repeat      --> ").append(isRepeat)
+            .append("\ndays           --> ").append(temp.toString())
             .append("\n-------- alarm end --------");
 
         return result.toString();

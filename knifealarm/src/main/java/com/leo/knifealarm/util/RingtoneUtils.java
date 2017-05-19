@@ -15,7 +15,7 @@ import java.util.List;
 
 public class RingtoneUtils {
 
-    public static List<String> getAllRingtoneTitle(Context context, int type) {
+    public static List<String> getAllRingtoneTitles(Context context, int type) {
         List<String> titles = new ArrayList<>();
         RingtoneManager rm = new RingtoneManager(context);
         rm.setType(type);

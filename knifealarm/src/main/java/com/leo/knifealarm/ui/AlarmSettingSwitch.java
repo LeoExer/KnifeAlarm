@@ -1,4 +1,4 @@
-package com.leo.knifealarm.view;
+package com.leo.knifealarm.ui;
 
 import android.content.Context;
 import android.content.res.TypedArray;

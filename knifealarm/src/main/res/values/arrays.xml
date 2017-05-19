@@ -6,4 +6,25 @@
         <item>每天</item>
         <item>自定义</item>
     </string-array>
+
+    <array name="days_icon_normal">
+        <item>@drawable/ic_mon_normal</item>
+        <item>@drawable/ic_tue_normal</item>
+        <item>@drawable/ic_wen_normal</item>
+        <item>@drawable/ic_thu_normal</item>
+        <item>@drawable/ic_fri_normal</item>
+        <item>@drawable/ic_sat_normal</item>
+        <item>@drawable/ic_sun_normal</item>
+    </array>
+
+    <array name="days_icon_select">
+        <item>@drawable/ic_mon_select</item>
+        <item>@drawable/ic_tue_select</item>
+        <item>@drawable/ic_wen_select</item>
+        <item>@drawable/ic_thu_select</item>
+        <item>@drawable/ic_fri_select</item>
+        <item>@drawable/ic_sat_select</item>
+        <item>@drawable/ic_sun_select</item>
+    </array>
+
 </resources>
